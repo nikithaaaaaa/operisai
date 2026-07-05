@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: codesync-server
+    runtime: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node src/index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+      - key: GEMINI_API_KEY
+        sync: false   # Set this manually in the Render dashboard
+      - key: REDIS_URL
+        sync: false   # Set this manually in the Render dashboard
+      - key: CLIENT_URL
+        sync: false   # Set to your Vercel frontend URL
